@@ -21,8 +21,26 @@ const schema = Yup.object().shape({
 export default function SignUp() {
   const dispatch = useDispatch();
 
-  function handleSubmit({ name, email, password }) {
-    dispatch(signUpRequest(name, email, password));
+  function handleSubmit({
+    teamName,
+    firstPokemon,
+    secondPokemon,
+    thirdPokemon,
+    fourthPokemon,
+    fifthPokemon,
+    lastPokemon,
+  }) {
+    dispatch(
+      signUpRequest(
+        teamName,
+        firstPokemon,
+        secondPokemon,
+        thirdPokemon,
+        fourthPokemon,
+        fifthPokemon,
+        lastPokemon
+      )
+    );
   }
   return (
     <>

@@ -12,10 +12,35 @@ export function signInSuccess(token, user) {
   };
 }
 
-export function signUpRequest(name, email, password) {
+export function signUpRequest(
+  teamName,
+  firstPokemon,
+  secondPokemon,
+  thirdPokemon,
+  fourthPokemon,
+  fifthPokemon,
+  lastPokemon
+) {
   return {
     type: '@auth/SIGN_UP_REQUEST',
-    payload: { name, email, password },
+    payload: {
+      teamName,
+      firstPokemon,
+      secondPokemon,
+      thirdPokemon,
+      fourthPokemon,
+      fifthPokemon,
+      lastPokemon,
+    },
+  };
+}
+
+export function getTeam(teamName) {
+  return {
+    type: '@auth/GET_TEAM',
+    payload: {
+      teamName,
+    },
   };
 }
 

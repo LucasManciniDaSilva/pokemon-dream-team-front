@@ -35,18 +35,47 @@ export function* signIn({ payload }) {
 
 export function* signUp({ payload }) {
   try {
-    const { name, email, password } = payload;
+    const {
+      teamName,
+      firstPokemon,
+      secondPokemon,
+      thirdPokemon,
+      fourthPokemon,
+      fifthPokemon,
+      lastPokemon,
+    } = payload;
 
-    yield call(api.post, 'users', {
-      name,
-      email,
-      password,
-      provider: true,
+    yield call(api.post, 'team', {
+      teamName,
+      firstPokemon,
+      secondPokemon,
+      thirdPokemon,
+      fourthPokemon,
+      fifthPokemon,
+      lastPokemon,
     });
+
+    toast.success('Pokémon Team Create Successfully');
 
     history.push('/');
   } catch (err) {
-    toast.error('Falha no cadastro, verifique seus dados!');
+    toast.error('Error to create your Pokémon Team. Verify your pokémons');
+
+    yield put(signFailure());
+  }
+}
+
+export function* getTeam({ payload }) {
+  try {
+    const { teamName } = payload;
+
+    yield call(api.get, `team/${teamName}`, {});
+
+    toast.success(`${teamName} accessed`);
+
+    history.push('/');
+  } catch (err) {
+    toast.error('Error to get Pokémon Team');
 
     yield put(signFailure());
   }
@@ -70,5 +99,6 @@ export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
+  takeLatest('@auth/GET_TEAM', getTeam),
   takeLatest('@auth/SIGN_OUT', signOut),
 ]);

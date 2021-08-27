@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { darken, lighten } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: linear-gradient(-90deg, #6d9fff, #0057ff);
+  background: linear-gradient(-90deg, #0e84d8, #0a63a3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 44px;
-      background:  #fa7474;
+      background:  #ff1a1a;
       font-weight: bold;
       color: #fff;
       border: 0;
@@ -54,15 +54,17 @@ export const Content = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.1, '#fa7474')};
+        background: ${lighten(0.1, '#ff1a1a')};
       }
     }
 
     a {
       margin: 5px 0 0;
-      height: 20px;
+      text-align: center;
+      line-height: 40px;
+      height: 40px;
       font-weight: bold;
-      background:  #a98ffe;
+      background:  #808080;
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -71,7 +73,7 @@ export const Content = styled.div`
 
 
     &:hover {
-      background: ${darken(0.1, '#a98ffe')};
+      background: ${lighten(0.1, '#808080')};
     }
   }
 `;

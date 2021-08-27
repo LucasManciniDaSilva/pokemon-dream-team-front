@@ -1,7 +1,7 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const api = axios.create({
-//   baseURL: 'http://167.71.88.56:3333/',
-// });
+const api = axios.create({
+  baseURL: 'http://localhost:8090/pokemon-team/v1',
+});
 
-// export default api;
+export default api;
